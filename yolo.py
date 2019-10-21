@@ -11,8 +11,10 @@ import cv2
 def download_model_weights():
     download_url = "https://pjreddie.com/media/files/yolov3.weights"
     
+    print("downloading model weights...")
     opener = urllib.request.URLopener()
     opener.retrieve(download_url, "yolo-coco/yolov3.weights")
+    print("model download is complete.")
 
     return
 
