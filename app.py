@@ -1,13 +1,13 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_file
 from yolo import get_predictions
+
 
 app = Flask(__name__)
 
 
 @app.route("/predict", methods=['POST'])
 def predict():
-    raw_image = request
-    predictions = get_predictions(raw_image)
+    predictions = get_predictions(request)
 
     return jsonify(predictions)
  

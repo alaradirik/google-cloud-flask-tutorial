@@ -1,5 +1,3 @@
-# USAGE
-# python yolo.py --image images/baggage_claim.jpg --yolo yolo-coco
 import os
 import time
 import urllib
@@ -50,8 +48,7 @@ def get_predictions(raw_image):
     print("[INFO] loading YOLO from disk...")
     net = cv2.dnn.readNetFromDarknet(configPath, weightsPath)
 
-    # load our input image and grab its spatial dimensions
-    # convert string of image data to uint8
+    # load input image and grab its spatial dimensions
     nparr = np.fromstring(raw_image.data, np.uint8)
     # decode image
     image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
@@ -74,8 +71,7 @@ def get_predictions(raw_image):
     # show timing information on YOLO
     print("[INFO] YOLO took {:.6f} seconds".format(end - start))
 
-    # initialize our lists of detected bounding boxes, confidences, and
-    # class IDs, respectively
+    # initialize our lists of detected bounding boxes, confidences, and class IDs, respectively
     boxes = []
     confidences = []
     classIDs = []
@@ -84,24 +80,18 @@ def get_predictions(raw_image):
     for output in layerOutputs:
         # loop over each of the detections
         for detection in output:
-            # extract the class ID and confidence (i.e., probability) of
-            # the current object detection
+            # extract the class ID and confidence (i.e., probability) of the current object detection
             scores = detection[5:]
             classID = np.argmax(scores)
             confidence = scores[classID]
 
-            # filter out weak predictions by ensuring the detected
-            # probability is greater than the minimum probability
+            # filter out weak predictions by ensuring the detected probability is greater than the minimum probability
             if confidence > CONFIDENCE:
-                # scale the bounding box coordinates back relative to the
-                # size of the image, keeping in mind that YOLO actually
-                # returns the center (x, y)-coordinates of the bounding
-                # box followed by the boxes' width and height
+                # scale the bounding box coordinates back relative to the size of the image
                 box = detection[0:4] * np.array([W, H, W, H])
                 (centerX, centerY, width, height) = box.astype("int")
 
-                # use the center (x, y)-coordinates to derive the top and
-                # and left corner of the bounding box
+                # use the center (x, y)-coordinates to derive the top and and left corner of the bounding box
                 x = int(centerX - (width / 2))
                 y = int(centerY - (height / 2))
 
@@ -118,7 +108,7 @@ def get_predictions(raw_image):
     if len(idxs) > 0:
         # loop over the indexes we are keeping
         for i in idxs.flatten():
-
+            # append prediction boxes, display colors, labels and probabilities
             predictions.append({
                 "boxes": boxes[i], 
                 "color": [int(c) for c in COLORS[classIDs[i]]], 
