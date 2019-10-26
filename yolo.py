@@ -61,8 +61,7 @@ def get_predictions(raw_image):
     # construct a blob from the input image and then perform a forward
     # pass of the YOLO object detector, giving us our bounding boxes and
     # associated probabilities
-    blob = cv2.dnn.blobFromImage(image, 1 / 255.0, (416, 416),
-        swapRB=True, crop=False)
+    blob = cv2.dnn.blobFromImage(image, 1 / 255.0, (416, 416), swapRB=True, crop=False)
     net.setInput(blob)
     start = time.time()
     layerOutputs = net.forward(ln)
@@ -108,7 +107,7 @@ def get_predictions(raw_image):
     if len(idxs) > 0:
         # loop over the indexes we are keeping
         for i in idxs.flatten():
-            # append prediction boxes, display colors, labels and probabilities
+            # append prediction box coordinates, box display colors, labels and probabilities
             predictions.append({
                 "boxes": boxes[i], 
                 "color": [int(c) for c in COLORS[classIDs[i]]], 
