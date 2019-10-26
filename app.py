@@ -4,7 +4,7 @@ from yolo import get_predictions
 
 app = Flask(__name__)
 
-@app.route("/predict", methods=['POST'])
+@app.route("/predict", methods=["POST"])
 def predict():
     predictions = get_predictions(request)
 
@@ -12,4 +12,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
