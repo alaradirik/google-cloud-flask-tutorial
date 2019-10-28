@@ -1,6 +1,6 @@
 ## Introduction
 
-Accompanying code for the **Deploying a Custom ML Prediction Service on Google Cloud** tutorial on Medium.
+Accompanying code for the **Deploying a ML Model on Google Compute Engine** tutorial on Medium.
 
 ## Project Structure
 
