@@ -28,7 +28,7 @@ Accompanying code for the **Deploying a ML Model on Google Compute Engine** tut
 
 ## Running the Flask app on your local:
 
-`cd model-trainer`
+`cd google-cloud-flask-tutorial`
 
 `python app.py`
 
