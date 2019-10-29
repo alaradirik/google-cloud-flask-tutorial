@@ -29,7 +29,9 @@ Accompanying code for the **Deploying a ML Model on Google Compute Engine** tut
 ## Running the Flask app on your local:
 
 `cd google-cloud-flask-tutorial`
+
 `conda activate [name of enviroment]`
+
 `python app.py`
 
 Edit and use `request.py` by specifying the image to be annotated. 
