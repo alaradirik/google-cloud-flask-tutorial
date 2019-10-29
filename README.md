@@ -34,4 +34,4 @@ Accompanying code for the **Deploying a ML Model on Google Compute Engine** tut
 
 `python app.py`
 
-Edit and use `request.py` by specifying the image to be annotated. 
+Edit and use `request.py` to send a POST request to the app. 
