@@ -5,12 +5,12 @@ Accompanying code for the **Deploying a ML Model on Google Compute Engine** tut
 ## Project Structure
 
     .
-    ├── yolo-coco                       # Pretrained model files
-        └── coco.names                  # Available object labels
-        └── yolov3.cfg                  # YOLOv3 model configuration
-        └── yolov3.weights              # YOLOv3 model weights              
+    ├── yolo-coco                       # Pre-trained model files
+        └── coco.names                  # Object labels (person, car, etc.)
+        └── yolov3.cfg                  # Model configuration
+        └── yolov3.weights              # Model weights              
     ├── app.py                          # Flask app serving predictions
-    ├── yolo.py                         # Functions to load YOLO and generate predictions
+    ├── yolo.py                         # Functions to generate predictions
     ├── requirements.txt                # Dependencies
     └── README.md
 
